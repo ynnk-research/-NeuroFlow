@@ -1,0 +1,18 @@
+> Yannick Schmitt. (2026). EMA-Gated Temporal Sequence Compressing in Vision Transformers. Zenodo. https://doi.org/10.5281/zenodo.19337577
+
+This project includes and builds upon the following open-source software:
+
+1. SigLIP (Sigmoid Language-Image Pre-training)
+   Developed by Google Research.
+   License: Apache License 2.0
+   Source: https://github.com/google-research/big_vision (via Hugging Face)
+   
+2. Phi Model Family (Ablation Study)
+   Developed by Microsoft Corporation.
+   License: MIT License
+   Source: https://huggingface.co/microsoft
+
+3. Custom Gating Mechanism
+   The novel gating logic and integration architecture are original 
+   contributions by Yannick Schmitt and are licensed under the Apache License 2.0 
+   accompanying this project.

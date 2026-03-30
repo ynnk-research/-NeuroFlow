@@ -1,0 +1,26 @@
+# NeuroFlow — EMA-Gated Temporal Sequence Compression in Vision Transformers
+# Core dependencies. Pin versions only where API-breaking changes are known.
+
+# Deep learning
+torch>=2.1.0
+torchvision>=0.16.0
+
+# HuggingFace ecosystem
+transformers>=4.40.0      # SigLIP and Phi-3-mini support added in 4.40
+huggingface_hub>=0.22.0
+
+# Video and image I/O
+opencv-python>=4.8.0      # cv2 — frame extraction and pixel-domain ablation
+Pillow>=10.0.0            # PIL — image loading and preprocessing
+
+# Distillation training (distill_siglip.py only)
+# These are not required for inference with neuroflow_gate.py
+numpy>=1.24.0
+
+# LLM ablation (llm_bypass_ablation.py only)
+datasets>=2.18.0          # WikiText-103 loading
+tabulate>=0.9.0           # results table formatting
+
+# Optional — faster inference at 1792p
+# Uncomment if your hardware and CUDA version support FlashAttention
+# flash-attn>=2.5.0
