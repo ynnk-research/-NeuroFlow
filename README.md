@@ -205,4 +205,4 @@ If you use this work, please cite it as:
 
 ## License
  * The source code in this repository is licensed under the [Apache License 2.0](LICENSE).
- * The documentation, LaTeX source files, and PDF papers are licensed under the[Creative Commons Attribution 4.0 International License (CC BY 4.0)](LICENSE-CC-BY.txt).
+ * The documentation, LaTeX source files, and PDF papers are licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](LICENSE-CC-BY.txt).
