@@ -16,11 +16,11 @@
 
 This repository contains the official PyTorch implementation, verification scripts, and pre-print paper for **NeuroFlow**. 
 
-NeuroFlow is a dynamic routing framework for Vision Transformer video inference. It exploits temporal redundancy by tracking per-patch semantic surprise via an Exponential Moving Average (EMA) of patch-level embeddings, effectively answering the architectural mismatch between $\mathcal{O}(N^2)$ self-attention and highly redundant natural video streams.
+NeuroFlow is a dynamic routing framework for Vision Transformer video inference. It exploits temporal redundancy by tracking per-patch embedding-distance threshold via an Exponential Moving Average (EMA) of patch-level embeddings, effectively answering the architectural mismatch between $\mathcal{O}(N^2)$ self-attention and highly redundant natural video streams.
 
 ## Overview
 ### Key Contributions
-* **Architecture C (Dual-Memory Reconstruction):** A completely *training-free* inference engine that combines a Layer 0 Retinal Gate with a Layer 12 Cortical Cache. It achieves **71.55% zero-shot top-1 accuracy at 84.0% token sparsity** on SigLIP, retaining 92.4% of dense accuracy without modifying any weights.
+* **Architecture C (Dual-Memory Reconstruction):** A completely *training-free* inference engine that combines a Layer 0 Gate with a Layer 12 Cache. It achieves **71.55% zero-shot top-1 accuracy at 84.0% token sparsity** on SigLIP, retaining 92.4% of dense accuracy without modifying any weights.
 * **Architecture B (Extreme Wall-Clock Speedup):** Physically eliminates stationary tokens before the encoder. With sparse manifold distillation, it reduces 1792p SigLIP 2 inference from 678 ms to 11.9 ms—a **55.80× wall-clock speedup** at 97.37% embedding fidelity.
 * **LLM Ablation:** Characterises the architectural boundaries of applying similarity-gated bypass to autoregressive language models (Phi-3-mini), demonstrating 0% token drift in syntactically constrained generation.
 
@@ -39,7 +39,7 @@ Three architectures are evaluated in the paper, each representing a different pl
 |---|---|---|---|
 | **A** | Between attention and MLP sub-layers | No | 97.1% fidelity; bounded at 1.17× wall-clock (Amdahl ceiling) |
 | **B** | Layer 0 (pre-encoder elimination) | **Yes** (sparse manifold distillation) | 55.80× wall-clock speedup at 1792p, 97.37% fidelity |
-| **C** | Layer 0 + Cortical Cache (Dual-Memory) | **No** | 71.55% UCF-101 zero-shot top-1 at 84.0% token sparsity |
+| **C** | Layer 0 + Layer 12 Cache (Dual-Memory) | **No** | 71.55% UCF-101 zero-shot top-1 at 84.0% token sparsity |
 
 Architecture C is the primary contribution. It resolves the core tension in sparse ViT inference — the encoder benefits from sparsity, but the MAP pooling head requires a complete K-V set — without modifying any model weights.
 
